@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "app_function": "app.app",
+        "aws_region": "eu-west-1",
+        "profile_name": "default",
+        "project_name": "aws-arb-dash",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-5u1jh1iq4"
+    }
+}
