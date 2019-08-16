@@ -26,9 +26,6 @@ app.layout = html.Div(children=[
     )
 ])
 
-# if __name__ == '__main__':
-#     DEBUG = False if env['STAGE'] == 'prod' else True
-#     app.run_server(debug=DEBUG)
-def lambda_handler(event, context):
-    # TODO implement
-    return app.run_server(debug=DEBUG)
+if __name__ == '__main__':
+    DEBUG = False if env['STAGE'] == 'prod' else True
+    app.run_server(debug=DEBUG)

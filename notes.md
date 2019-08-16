@@ -1,8 +1,13 @@
 ```
-python3.7 -m venv ~/vscode/gcp_arb_dashboard/.envdash 
-source ~/vscode_proj/gcp_arb_dashboard/.envdash/bin/activate
+python3 -m venv ~/vscode/aws_arb_dash/.envdash
+source ~/vscode/aws_arb_dash/.envdash/bin/activate
+pip install -r requirements.txt
 ```
 
+https://blog.apcelent.com/deploy-flask-aws-lambda.html
+
+zappa deploy dev
+zappa update dev
 ## 02 Dependencies layer
 We need to provide all the Python libraries beyond the builtin ones that our project will use.
 Building package libs should be done in the lambci docker container to match wth lambda executor environment. We will use pip to directly write the libraries to a specific directory, important for Python to locate them.
