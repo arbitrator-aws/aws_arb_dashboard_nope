@@ -1,2 +1,5 @@
 .vscode
 .envdash
+docker_env
+zappa_docker/aws-arb-dash-dev-template-1566493144.json
+.DS_Store

@@ -1,6 +1,9 @@
 ```
 python3 -m venv ~/vscode/aws_arb_dash/.envdash
 source ~/vscode/aws_arb_dash/.envdash/bin/activate
+
+python3.7 -m venv ~/vscode_proj/aws_arb_dashboard/.envdash
+source ~/vscode_proj/aws_arb_dashboard/.envdash/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -14,6 +17,36 @@ Building package libs should be done in the lambci docker container to match wth
 
 Run from the project root:
 ```Shell
+docker run \
+-e AWS_SECRET_ACCESS_KEY= \
+-e AWS_ACCESS_KEY_ID= \
+-e AWS_DEFAULT_REGION=eu-west-1 \
+--rm -it -v $(pwd):/var/task \
+mcrowson/zappa-builder \
+bash
+
+https://tecadmin.net/install-python-3-6-on-centos/
+cd /var/task
+
+#virtualenv docker_env && source docker_env/bin/activate
+python3.6 -m venv docker_env && source docker_env/bin/activate
+pip install -r requirements.txt
+
+zappa update dev && rm -rf docker_env
+
+################################################
+docker run \
+-e AWS_SECRET_ACCESS_KEY= \
+-e AWS_ACCESS_KEY_ID= \
+-e AWS_DEFAULT_REGION=eu-west-1 \
+--rm -it -v $(pwd):/var/task \
+lambci/lambda:build-python3.6 \
+bash
+
+python3.6 -m venv docker_env && source docker_env/bin/activate
+pip install -r requirements.txt
+
+
 docker run --rm -it -v ${PWD}/layers/02_dependencies:/var/task lambci/lambda:build-python3.6 bash
 # From the docker container, install the python packages
 # rm -r python

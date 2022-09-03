@@ -1,0 +1,8 @@
+flask
+zappa
+dash==1.1.1
+dash-core-components==1.1.1
+dash-daq==0.1.7
+dash-html-components==1.0.0
+dash-renderer==1.0.0
+dash-table==4.1.0
